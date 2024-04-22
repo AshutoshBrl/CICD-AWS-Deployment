@@ -65,12 +65,8 @@ resource "aws_instance" "aws_ins_web" {
   package_upgrade: true
 
   packages:
-    - docker
-    - docker-compose
     - curl
   runcmd:
-    - apt install docker -y
-    - apt install docker-compose-plugin -y
     - curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
     - chmod +x /usr/local/bin/docker-compose
     - apt install -y docker 
