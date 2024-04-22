@@ -40,4 +40,4 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           docker-compose down
-          docker-compose up
+          docker-compose up -d
