@@ -31,7 +31,7 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           scp -p ${{secrets.PORT}} ./docker-compose.yml ${{secrets.USERNAME}}@${{secrets.HOST}}:/home/ubuntu/
-          cd /home/ubuntu/
-          docker-compose down
-          docker-compose up
+          # cd /home/ubuntu/
+          docker-compose -f /home/ubuntu/docker-compose.yml down
+          docker-compose -f /home/ubuntu/docker-compose.yml up
           # git clone 
