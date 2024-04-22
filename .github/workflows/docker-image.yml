@@ -33,5 +33,5 @@ jobs:
         target: /home/ubuntu/
         script: |
           cd /home/ubuntu
-          docker-compose down
-          docker-compose up
+          # docker-compose down
+          docker-compose -f /home/ubuntudocker-compose.yml up
