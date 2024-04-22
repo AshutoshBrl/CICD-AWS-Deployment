@@ -15,7 +15,7 @@ terraform {
 # }
 
 
-resource "aws_security_group" "default" {
+resource "aws_security_group" "default-1" {
   name = "security group from terraform"
 
   ingress {
@@ -55,7 +55,7 @@ resource "aws_instance" "aws_ins_web" {
 
   ami                         = "ami-080e1f13689e07408"
   instance_type               = "t2.micro"
-  vpc_security_group_ids      = [aws_security_group.default.id]
+  vpc_security_group_ids      = [aws_security_group.default-1.id]
   associate_public_ip_address = true
   key_name                    = "ashutosh-webpoint" 
   user_data = <<-EOF
@@ -69,12 +69,10 @@ resource "aws_instance" "aws_ins_web" {
     - docker-compose
     - curl
   runcmd:
-    - apt install docker
-    - apt install docker-compose-plugin
     - curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
     - chmod +x /usr/local/bin/docker-compose
-    - apt install docker
-    - apt install docker-compose-plugin
+    - apt install docker-compose-plugin -y
+    - apt install docker -y
     - usermod -aG Docker ubuntu
     - systemctl start docker
     - systemctl enable docker
@@ -82,7 +80,7 @@ resource "aws_instance" "aws_ins_web" {
   final_message: "Docker and Docker Compose have been installed and enabled."
   EOF
   tags = {
-    Name = "my instance"
+    Name = "my-random-instance"
   }
 
 }
