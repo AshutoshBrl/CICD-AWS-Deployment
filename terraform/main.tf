@@ -75,9 +75,10 @@ resource "aws_instance" "aws_ins_web" {
     - chmod +x /usr/local/bin/docker-compose
     - apt install docker 
     - apt install docker-compose-plugin 
-    - usermod -aG Docker ubuntu
+    - usermod -aG Docker $USER
     - systemctl start docker
     - systemctl enable docker
+    - newgrp docker
 
   final_message: "Docker and Docker Compose have been installed and enabled."
   EOF
