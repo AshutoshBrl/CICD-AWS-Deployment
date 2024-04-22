@@ -74,6 +74,7 @@ resource "aws_instance" "aws_ins_web" {
     - apt install docker-compose-plugin -y
     - apt install docker -y
     - usermod -aG Docker ubuntu
+    - newgrp docker
     - systemctl start docker
     - systemctl enable docker
 
