@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: CICD-AWS-Deployment
+  annotations:
+    github.com/project-slug: AshutoshBrl/CICD-AWS-Deployment
+spec:
+  type: other
+  lifecycle: unknown
+  owner: AshutoshBrl
